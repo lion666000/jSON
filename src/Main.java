@@ -77,6 +77,7 @@ void main() {
 
  */
 /*
+
     System.out.println("Zadej Ingredienci:? ");
     String ingredient = sc.next();
 
@@ -84,22 +85,32 @@ void main() {
         JSONObject pizza = pizzy.getJSONObject(i);
         JSONArray ingredients = pizza.getJSONArray("ingredience");
 
+        if (ingredients.toList().contains(ingredient)) {
+            System.out.println(pizza.getString("nazev") + " – " + pizza.getInt("cena"));
+        }
+        /*
         for  (int j = 0; j < ingredients.length(); j++) {
             String ingredience = ingredients.getString(j);
             if (ingredience.equals(ingredient)){
                 System.out.println(pizza.getString("nazev") + " – " + pizza.getInt("cena"));
             }
         }
+        //
+
     }
+//
 
- */
 
+
+/*
     list.sort(Comparator.comparingInt(Item::price));
 
     for  (Item item : list) {
         System.out.println(item.name() + " " + item.price());
     }
 
+ */
+/*
     JSONObject newPizza = new JSONObject();
     newPizza.put("nazev", "Negra");
     newPizza.put("cena", 5);
@@ -121,6 +132,8 @@ void main() {
         throw new RuntimeException(e);
     }
 
+ */
+/*
     IO.println("");
 
     int random1 = (int)(Math.random() * list.size());
@@ -135,6 +148,77 @@ void main() {
     else{
         System.out.println(list.get(random2).name() + " je levnější");
     }
+
+ */
+    /*
+    JSONObject desiredPizza = pizzy.getJSONObject(0);
+
+    System.out.println("Zadej cena:");
+    int cena = sc.nextInt();
+    int targetDifference = cena;
+    sc.nextLine();
+
+    for (int i = 0; i < pizzy.length(); i++) {
+        JSONObject pizza = pizzy.getJSONObject(i);
+        int cenaPizzy = pizza.getInt("cena");
+
+        int priceDifference = cena - cenaPizzy;
+
+        if (priceDifference < 0) {
+            priceDifference = priceDifference * (-1);
+        }
+
+        if (priceDifference < targetDifference) {
+            targetDifference = priceDifference;
+            desiredPizza = pizza;
+        }
+    }
+
+    System.out.println("Nejbližší pizza k zadané ceně " + cena + " : " + desiredPizza.getString("nazev") + ", " +  desiredPizza.getInt("cena"));
+
+     */
+
+    /*
+
+    JSONObject desiredPizza = pizzy.getJSONObject(0);
+
+    System.out.println("Zadej cena:");
+    int cena = sc.nextInt();
+    int targetDifference = cena;
+    sc.nextLine();
+
+    System.out.println("Zadej Ingredienci:? ");
+    String ingredient = sc.next();
+
+    for (int i = 0; i < pizzy.length(); i++) {
+        JSONObject pizza = pizzy.getJSONObject(i);
+        JSONArray ingredients = pizza.getJSONArray("ingredience");
+
+        if (ingredients.toList().contains(ingredient)) {
+            int cenaPizzy = pizza.getInt("cena");
+
+            int priceDifference = cena - cenaPizzy;
+
+            if (priceDifference < 0) {
+                priceDifference = priceDifference * (-1);
+            }
+
+            if (priceDifference < targetDifference) {
+                targetDifference = priceDifference;
+                desiredPizza = pizza;
+            }
+        }
+    }
+
+    System.out.println("Nejbližší pizza k zadané ceně " + cena + " a s ingrediencí " + ingredient + ": " + desiredPizza.getString("nazev") + ", " +  desiredPizza.getInt("cena"));
+
+
+     */
+
+
+
+
+
 
 
 }
