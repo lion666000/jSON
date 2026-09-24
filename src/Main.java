@@ -215,7 +215,25 @@ void main() {
 
      */
 
+    boolean run = true;
+    while (run) {
+        System.out.println("Pizza Kvíz");
 
+        ArrayList<JSONObject> lista = new ArrayList<>();
+
+        int random1 = (int)(Math.random() * list.size());
+        int random2 = (int)(Math.random() * list.size());
+        int random3 = (int)(Math.random() * list.size());
+
+        lista.add(pizzy.getJSONObject(random1));
+
+
+        for (int i = 0; i < pizzy.length(); i++) {
+            JSONObject pizza = pizzy.getJSONObject(i);
+            JSONArray ingredients = pizza.getJSONArray("ingredience");
+
+        }
+    }
 
 
 
